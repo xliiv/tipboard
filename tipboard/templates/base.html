@@ -16,7 +16,19 @@
             <script src="{{ static_url("js/lib/jqplot/excanvas.min.js") }}"></script>
         <![endif]-->
 
+        <script src="{{static_url("bower_components/webcomponentsjs/webcomponents.min.js")}}"></script>
+        <!--
+        TODO:: add bower_components to static in python file
+        -->
+        <link rel="import" href="{{static_url("elements/tiles-feeder.html")}}">
+        <link rel="import" href="{{static_url("elements/tiles-rotor.html")}}">
+        <link rel="import" href="{{static_url("elements/image-tile.html")}}">
+        <link rel="import" href="{{static_url("elements/chart-tile.html")}}">
+
         {% block head %} {% end %}
     </head>
+    <!-- TODO:: make it from settings or somethihg -->
+    <tiles-feeder socketUrl='ws://localhost:7272/communication/websocket'></tiles-feeder>
+
     {% block put_body %} <body></body> {% end %}
 </html>
